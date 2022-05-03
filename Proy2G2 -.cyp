@@ -19,9 +19,8 @@ CREATE (lou)-[:DEPORTE]->(voley)
 MATCH (n) RETURN n
 
 MATCH (dani:person {name: "Daniel"})
-
-
-
+SET dani.birthday = date("2002")
+RETURN dani
 
 
 
