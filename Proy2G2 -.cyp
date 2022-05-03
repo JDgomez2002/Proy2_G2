@@ -6,6 +6,8 @@ CREATE (futbol:club {name: "Club de Football"})
 CREATE (basket:club {name: "Club de Basketball"})
 CREATE (ajedrez:club {name: "Club de Ajedrez"})
 CREATE (voley:club {name: "Club de Voleiball"})
+CREATE (marimba:club {name: "Club de Marimba"})
+CREATE (karaoke:club {name: "Club de Karaoke"})
 
 
 
