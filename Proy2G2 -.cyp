@@ -16,6 +16,7 @@ CREATE (sofi)-[:FRIENDS]->(lou)
 CREATE (dani)-[:DEPORTE]->(basket)
 CREATE (sofi)-[:ARTE]->(marimba)
 CREATE (lou)-[:DEPORTE]->(voley)
+
 MATCH (n) RETURN n
 
 MATCH (dani:person {name: "Daniel"})
@@ -26,7 +27,9 @@ MATCH (lou:person {name: "Lourdes"})
 SET lou.birthday = date("2002")
 RETURN lou
 
-
+MATCH (gaby:person {name: "Gabriela"})
+SET gaby.birthday = date("2003")
+RETURN gaby
 
 
 
