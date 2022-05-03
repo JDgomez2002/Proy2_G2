@@ -7,6 +7,8 @@
 #Lourdes Saavedra 21333
 #Daniel Gómez 21429
 
+# import neo4jupyter
+
 def preferencia(num1):
     print()
     print("Preferencia "+str(num1))
