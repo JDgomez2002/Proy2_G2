@@ -8,11 +8,10 @@ CREATE (ajedrez:club {name: "Club de Ajedrez"})
 CREATE (voley:club {name: "Club de Voleiball"})
 CREATE (marimba:club {name: "Club de Marimba"})
 CREATE (karaoke:club {name: "Club de Karaoke"})
-
-
-
-
-
+CREATE (dani)-[:FRIENDS]->(sofi)
+CREATE (dani)-[:FRIENDS]->(lou)
+CREATE (lou)-[:FRIENDS]->(gaby)
+CREATE (sofi)-[:FRIENDS]->(lou)
 
 CREATE (dani)-[:DEPORTE]->(basket)
 CREATE (sofi)-[:ARTE]->(marimba)
