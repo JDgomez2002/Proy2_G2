@@ -22,7 +22,9 @@ MATCH (dani:person {name: "Daniel"})
 SET dani.birthday = date("2002")
 RETURN dani
 
-
+MATCH (lou:person {name: "Lourdes"})
+SET lou.birthday = date("2002")
+RETURN lou
 
 
 
