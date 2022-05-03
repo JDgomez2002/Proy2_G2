@@ -14,7 +14,7 @@ CREATE (futbol:club {name: "Club de Football"})
 
 CREATE (dani)-[:DEPORTE]->(basket)
 CREATE (sofi)-[:ARTE]->(marimba)
-
+CREATE (lou)-[:DEPORTE]->(voley)
 
 
 
