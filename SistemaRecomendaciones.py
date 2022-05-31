@@ -7,13 +7,31 @@
 #Lourdes Saavedra 21333
 #Daniel Gómez 21429
 
-# import neo4jupyter
+from neo4j import GraphDatabase
+driver = GraphDatabase.driver("bolt://localhost:7687",auth=("neo4j","1234"))
+
+#inicializacion d ebase de datos
+def __init__(self, url, user, password):
+    self.__url = url
+    self.__user = user
+    self.__pwd = password
+    self.__driver = None
+    try:
+        self.driver = GraphDatabase.driver(self.__url, auth=(self.__user, self.__pwd))
+    except Exception as e:
+        print("Falla al crear Driver: ",e)
+
+#cierre de la base de datos
+def close(self):
+    self.driver.close()
 
 def preferencia(num1):
     print()
     print("Preferencia "+str(num1))
     print("1. Deportes")
     print("2. Arte")
+    print("3. Ciencia")
+    print("4. Agregar categoria de clubes")
     myString = input("Ingrese su eleccion: ")
     print()
     if(myString=="1"):
@@ -21,18 +39,52 @@ def preferencia(num1):
         print("2. Deporte sin contacto")
         deporte = input("Ingrese su eleccion: ")
         if(deporte=="1"):
-            myString = "Club de Basketball\nClub de Football"
+            print("\n1. Club de Basketball\n2. Club de Football")
+            myString = input("Ingrese su desicion: ")
+            if(myString=="1"):
+                myString = "Club de Basketball"
+            else:
+                myString = "Club de Football"
         else:
-            myString = "Club de Ajedrez\nClub de Voleiball"
-    else:
+            print("\n1. Club de Ajedrez\n2. Club de Voleiball")
+            myString = input("Ingrese su desicion: ")
+            if(myString=="1"):
+                myString = "Club de Ajedrez"
+            else:
+                myString = "Club de Voleiball"
+    elif(myString=="2"):
         print("1. Arte musical")
         print("2. Arte visual")
         arte = input("Ingrese su eleccion: ")
         if(arte=="1"):
-            myString = "club de Marimba\nClub de Karaoke"
+            print("\n1. Club de Marimba\n2. Club de Karaoke")
+            myString = input("Ingrese su desicion: ")
+            if(myString=="1"):
+                myString = "Club de Marimba"
+            else:
+                myString = "Club de Karaoke"
         else:
-            myString = "Club de Fotografia\nClub de Dibujo"
-    print("\nRecomendaciones:\n"+myString)
+            print("\n1. Club de Fotografia\n2. Club de Dibujo")
+            myString = input("Ingrese su desicion: ")
+            if(myString=="1"):
+                myString = "Club de Fotografia"
+            else:
+                myString = "Club de Dibujo"
+    elif(myString=="3"):
+        print("1. STEAM")
+        print("2. Astronomia")
+        arte = input("Ingrese su desicion: ")
+        if(arte=="1"):
+            myString = "Club de STEAM"
+        else:
+            myString = "Club de Astronomia"
+
+    else:
+        # print("Ingrese el nombre de la categoria de club: ")
+    
+        categoria = input("Ingrese el nombre de la categoria de club: ")
+        print("\nCategoria de "+categoria+" creada exitosamente!")
+        myString = "Clun de "+categoria
 
     return myString
 
@@ -76,7 +128,7 @@ while(continuar):
     preferencia_2 = preferencia(2);
 
     print("-----------------------------------------------------------------")
-    print("\nTodas sus preferencias son:\n"+preferencia_1+"\n"+preferencia_2)
+    print("\nTodas sus preferencias son:\n1. "+preferencia_1+"\n2. "+preferencia_2+"\n")
     print("-----------------------------------------------------------------")
     print()
     print("Espere un momento...")
@@ -86,6 +138,9 @@ while(continuar):
     print("-------------------------- Resultados! --------------------------")
     print("-----------------------------------------------------------------")
     print("Sus resultados son: ")
+    print("1. Miguel: Club de Basketball")
+    print("2. Maria: Club de Marimba")
+    print("3. Sofia: Amiga de Maria")
     print("-----------------------------------------------------------------")
 
     continuar = continuar_en_programa()
