@@ -9,8 +9,7 @@
 
 # from neomodel import config 
 
-from neomodel import (config, StructuredNode, StringProperty, IntegerProperty,
-    UniqueIdProperty, RelationshipTo)
+from neomodel import (config, StructuredNode, StringProperty, IntegerProperty, UniqueIdProperty, RelationshipTo)
 
 config.DATABASE_URL = 'bolt://neo4j:neo4j@localhost:7687/Proyecto2G2'
 
