@@ -7,6 +7,8 @@
 #Lourdes Saavedra 21333
 #Daniel Gómez 21429
 
+from cProfile import label
+from operator import length_hint
 from neo4j import GraphDatabase
 driver = GraphDatabase.driver("bolt://localhost:7687",auth=("neo4j","1234"))
 
@@ -138,9 +140,16 @@ while(continuar):
     print("-------------------------- Resultados! --------------------------")
     print("-----------------------------------------------------------------")
     print("Sus resultados son: ")
-    print("1. Miguel: Club de Basketball")
-    print("2. Maria: Club de Marimba")
-    print("3. Sofia: Amiga de Maria")
+    myGrpah = GraphDatabase.neo4j_driver.__dir__.__module__.__getattribute__
+    sugerencias_counter = 1
+    for i in range(myGrpah.__len__):
+        if(myGrpah.__getattribute__(i)==preferencia_1):
+            print(sugerencias_counter+". "myGrpah.__getattribute__(i).label+": "+preferencia_1)
+            sugerencias_counter += 1
+            
+        if(myGrpah.__getattribute__(i)==preferencia_2):
+            print(sugerencias_counter+". "myGrpah.__getattribute__(i).label+": "+preferencia_2)
+            sugerencias_counter += 1
     print("-----------------------------------------------------------------")
 
     continuar = continuar_en_programa()
